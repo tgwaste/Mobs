@@ -176,7 +176,7 @@ class Motion {
 			$entity->setAttackDelay(0);
 			$ev = new EntityDamageByEntityEvent($entity, $target, EntityDamageEvent::CAUSE_ENTITY_ATTACK, $damage);
 			$target->attack($ev);
-    }
+		}
 
 		$entity->setAttackDelay($entity->getAttackDelay() + 1);
 

@@ -7,6 +7,7 @@ namespace tgwaste\Mobs;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
+use pocketmine\permission\DefaultPermissions;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 
@@ -43,6 +44,11 @@ class Main extends PluginBase implements Listener {
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
+		if ($sender instanceof Player and !$sender->hasPermission(DefaultPermissions::ROOT_OPERATOR)) {
+			$sender->sendMessage("§cYou do not have permission to use mob commands§r");
+			return true;
+		}
+
 		if ($label === "listmobs") {
 			(new Funcs)->listMobs($sender);
 			return true;
@@ -54,6 +60,11 @@ class Main extends PluginBase implements Listener {
 		}
 
 		if ($label === "summon") {
+			if (!$sender instanceof Player) {
+				$sender->sendMessage("§cThat command cannot be done from the console§r");
+				return true;
+			}
+
 			if (count($args) < 1) {
 				return false;
 			}
