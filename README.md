@@ -9,5 +9,6 @@ This should just work.
 <br />
 There are a few options in config.yml.
 <br />
+## Disclaimer
 I know this code is horrific. I'm learning and doing the best I can. :)
 
