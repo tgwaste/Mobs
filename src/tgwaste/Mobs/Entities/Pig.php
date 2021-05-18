@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace tgwaste\Mobs\Entities;
 
-use pocketmine\entity\Animal;
+use pocketmine\entity\Living;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use tgwaste\Mobs\Traits;
 
-class Pig extends Animal {
+class Pig extends Living {
 	use Traits;
 
 	public static function getNetworkTypeId() : string {
