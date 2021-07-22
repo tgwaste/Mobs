@@ -94,7 +94,7 @@ trait Traits {
 		$this->setNameTagAlwaysVisible($damagetags);
 	}
 
-	public function knockBack(float $x, float $z, float $base = 0.4): void {
+	public function knockBack(float $x, float $z, float $force = 0.4, ?float $verticalLimit = 0.4): void {
 		if ($this->isHostile() == true) {
 			$this->timer = 20;
 			$this->setMovementSpeed(1.00);
@@ -103,7 +103,7 @@ trait Traits {
 			$this->setMovementSpeed(2.00);
 		}
 		$this->damageTag();
-		parent::knockBack($x, $z, $base);
+		parent::knockBack($x, $z, $force);
 	}
 
 	public function entityBaseTick(int $diff = 1) : bool {
