@@ -1,5 +1,5 @@
 name: Mobs
-version: 1.0.2
+version: 1.0.3
 main: tgwaste\Mobs\Main
 api: 4.0.0
 author: tgwaste
@@ -7,9 +7,12 @@ commands:
   killmobs:
     usage: "/killmobs"
     description: "Kill all Mobs"
+    permission: pocketmine.group.operator
   listmobs:
     usage: "/listmobs"
     description: "List all Mobs"
+    permission: pocketmine.group.operator
   summon:
     usage: "/summon <type>"
     description: "Summon a Mob"
+    permission: pocketmine.group.operator

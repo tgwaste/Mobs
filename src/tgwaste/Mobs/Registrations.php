@@ -17,7 +17,6 @@ use tgwaste\Mobs\Entities\Cod;
 use tgwaste\Mobs\Entities\Cow;
 use tgwaste\Mobs\Entities\Creeper;
 use tgwaste\Mobs\Entities\Dolphin;
-use tgwaste\Mobs\Entities\EnderDragon;
 use tgwaste\Mobs\Entities\Enderman;
 use tgwaste\Mobs\Entities\Horse;
 use tgwaste\Mobs\Entities\Husk;
@@ -104,13 +103,6 @@ class Registrations {
 				return new Dolphin(EntityDataHelper::parseLocation($nbt, $world), $nbt);
 			},
 			['Dolphin', 'minecraft:dolphin'], EntityLegacyIds::DOLPHIN
-		);
-
-		(new EntityFactory)->register(EnderDragon::class,
-			function(World $world, CompoundTag $nbt) : EnderDragon {
-				return new EnderDragon(EntityDataHelper::parseLocation($nbt, $world), $nbt);
-			},
-			['EnderDragon', 'minecraft:ender_dragon'], EntityLegacyIds::ENDER_DRAGON
 		);
 
 		(new EntityFactory)->register(Enderman::class,
@@ -279,7 +271,6 @@ class Registrations {
 			"Cow" => Cow::class,
 			"Creeper" => Creeper::class,
 			"Dolphin" => Dolphin::class,
-			"EnderDragon" => EnderDragon::class,
 			"Enderman" => Enderman::class,
 			"Horse" => Horse::class,
 			"Husk" => Husk::class,
@@ -308,7 +299,6 @@ class Registrations {
 	public function loadFlying() : array {
 		return [
 			"Bat" => true,
-			"EnderDragon" => true,
 			"Parrot" => true,
 			"Phantom" => true
 		];

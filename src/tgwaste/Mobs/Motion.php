@@ -13,14 +13,15 @@ use pocketmine\player\Player;
 class Motion {
 	public function tick(Entity $entity) {
 		$timer = $entity->getTimer() - 1;
+		$flying = $entity->isFlying();
+
 		$entity->setTimer($timer);
 
 		if ($timer > 0) {
 			return $this->wait($entity);
 		}
 
-		if ($timer == 0 and mt_rand(0, 1) == 1 and $entity->getTargetEntity() === null) {
-			# idle between 5 and 30 seconds
+		if ($timer == 0 and $flying == false and mt_rand(0, 1) == 1 and $entity->getTargetEntity() === null) {
 			return $entity->setTimer(mt_rand(100, 600));
 		}
 
@@ -75,7 +76,7 @@ class Motion {
 		}
 
 		$vec = new Vector3($motion->x, $motion->y, $motion->z);
-		$look = new Vector3($location->x+$motion->x, $location->y+$motion->y, $location->z+$motion->z);
+		$look = new Vector3($location->x+$motion->x, $location->y+$motion->y+$entity->getEyeHeight(), $location->z+$motion->z);
 
 		$entity->setDefaultLook($look);
 
@@ -122,7 +123,6 @@ class Motion {
 			$x = $location->x + mt_rand(-1, 1);
 			$y = $location->y + mt_rand(-1, 1);
 			$z = $location->z + mt_rand(-1, 1);
-
 			$entity->lookAt(new Vector3($x, $y, $z));
 		}
 	}
@@ -132,6 +132,7 @@ class Motion {
 		$epos = $entity->getPosition();
 		$motion = $entity->getMotion();
 		$speed = $entity->getMovementSpeed();
+		$flying = $entity->isFlying();
 
 		$x = $dest->x - $epos->x;
 		$y = $dest->y - $epos->y;
@@ -140,7 +141,7 @@ class Motion {
 		if ($x ** 2 + $z ** 2 < 0.7) {
 			if ($entity->getTargetEntity() === null) {
 				$motion->y = 0;
-				$entity->setTimer(200);
+				$entity->setTimer($flying == true ? 100 : 200);
 				$entity->setDestination(new Vector3(0, 0, 0));
 			}
 		} else {

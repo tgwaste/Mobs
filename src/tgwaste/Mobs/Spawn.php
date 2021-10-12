@@ -16,8 +16,6 @@ class Spawn {
 			return;
 		}
 
-		$maxperworld = 3;
-
 		foreach (Main::$instance->getServer()->getWorldManager()->getWorlds() as $world) {
 			if ($this->isNoSpawn($world) == true) {
 				# spawning is not allowed in this world
@@ -51,7 +49,9 @@ class Spawn {
 						}
 					}
 
-					$max = $maxperworld - $total;
+					$allowed = Main::$instance->getConfig()->get($mobname);
+
+					$max = $allowed - $total;
 
 					if ($max < 1) {
 						continue;
