@@ -126,10 +126,10 @@ class Spawn {
 	}
 
 	public function spawnEntity(string $mobname, World $world, Vector3 $pos) {
-		$location = new Location($pos->x, $pos->y, $pos->z, 0, 0, $world);
+		$location = new Location($pos->x, $pos->y, $pos->z, $world, 0, 0);
 
 		if (array_key_exists($mobname, Main::$instance->flying)) {
-			$location = new Location($pos->x, $pos->y+8, $pos->z, 0, 0, $world);
+			$location = new Location($pos->x, $pos->y+8, $pos->z, $world, 0, 0);
 		}
 
     $entity = new Main::$instance->classes[$mobname]($location);
