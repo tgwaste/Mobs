@@ -13,3 +13,7 @@ There are a few options in config.yml.
 I know this code is horrific. I'm learning and doing the best I can. :)
 <br />
 See release notes.
+<br />
+<br />
+[![](https://poggit.pmmp.io/shield.state/Mobs)](https://poggit.pmmp.io/p/Mobs)
+<a href="https://poggit.pmmp.io/p/Mobs"><img src="https://poggit.pmmp.io/shield.state/Mobs"></a>
