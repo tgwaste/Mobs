@@ -16,4 +16,3 @@ See release notes.
 <br />
 <br />
 [![](https://poggit.pmmp.io/shield.state/Mobs)](https://poggit.pmmp.io/p/Mobs)
-<a href="https://poggit.pmmp.io/p/Mobs"><img src="https://poggit.pmmp.io/shield.state/Mobs"></a>
