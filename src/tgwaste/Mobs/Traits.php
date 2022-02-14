@@ -16,7 +16,7 @@ trait Traits {
 	public $timer;
 
 	public function initEntity(CompoundTag $nbt) : void {
-		$this->canClimb(true);
+		$this->setCanClimb(true);
 		$this->setImmobile(false);
 		$this->setHealth(20);
 		$this->setMaxHealth(20);
