@@ -89,27 +89,21 @@ class Spawn {
 
 				if ($this->isNoSpawn($world) == true) {
 					# spawning is not allowed in this world
-					if ($entity instanceof Entity) {
-						$entity->setNameTag("Spawning is not allowed in this world");
-					}
+					$entity->setNameTag("Spawning is not allowed in this world");
 					$entity->kill();
 					continue;
 				}
 
 				if ($swimming == false and ($block instanceof Water or $entity->isUnderwater())) {
 					# this entity should not be in the water
-					if ($entity instanceof Entity) {
-						$entity->setNameTag("Not allowed in water");
-					}
+					$entity->setNameTag("Not allowed in water");
 					$entity->kill();
 					continue;
 				}
 
 				if (count($world->getPlayers()) < 1) {
 					# there are no players in this world
-					if ($entity instanceof Entity) {
-						$entity->setNameTag("No players in $worldname");
-					}
+					$entity->setNameTag("No players in $worldname");
 					$entity->kill();
 					continue;
 				}
