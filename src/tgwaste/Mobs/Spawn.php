@@ -33,7 +33,7 @@ class Spawn {
 
 			foreach ($positions as $pos) {
 				$biome = $world->getBiome((int)$pos->x, (int)$pos->z)->getName();
-				$daytime = (new Funcs)->isDayTime($world);
+				$daytime = (new Tools)->isDayTime($world);
 
 				if ($daytime == false and mt_rand(1, 100) >= 20) {
 					$mobtable = (new Biomes)->getNightMobsForBiome($biome);

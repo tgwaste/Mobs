@@ -24,14 +24,14 @@ class Listen implements Listener {
 	public function onEntityDespawnEvent(EntityDespawnEvent $event) {
 		$entity = $event->getEntity();
 		if (method_exists($entity, "getName") and $entity instanceof Entity) {
-			(new Funcs)->spawnMessage($entity, "Despawned");
+			(new Tools)->spawnMessage($entity, "Despawned");
 		}
 	}
 
 	public function onEntitySpawnEvent(EntitySpawnEvent $event) {
 		$entity = $event->getEntity();
 		if ($entity instanceof Entity) {
-			(new Funcs)->spawnMessage($entity, "Spawned");
+			(new Tools)->spawnMessage($entity, "Spawned");
 		}
 	}
 }

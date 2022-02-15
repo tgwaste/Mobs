@@ -9,7 +9,7 @@ use pocketmine\entity\Entity;
 use pocketmine\player\Player;
 use pocketmine\world\World;
 
-class Funcs {
+class Tools {
 	public function isDayTime(World $world) : bool {
 		return $world->getSunAngleDegrees() < 90 or $world->getSunAngleDegrees() > 270;
 	}
@@ -108,7 +108,7 @@ class Funcs {
 		$worldname = $world->getFolderName();
 		$biome = $world->getBiome((int)$position->x, (int)$position->z)->getName();
 
-		$biometag = (new Funcs)->getBiomeTag($biome);
+		$biometag = $this->getBiomeTag($biome);
 		$nametag = str_replace(["\n"], "", $nametag);
 
 		Main::$instance->getServer()->getLogger()->info("$header §e$name/$eid §r($nametag) in world §d$worldname §r($biometag)");

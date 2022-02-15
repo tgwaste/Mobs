@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace tgwaste\Mobs\Entities;
 
+use pocketmine\data\bedrock\EntityLegacyIds;
 use pocketmine\entity\WaterAnimal;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use tgwaste\Mobs\Traits;
 
 class TropicalFish extends WaterAnimal {
 	use Traits;
+
+	const TYPE_ID = EntityLegacyIds::TROPICALFISH;
 
 	public static function getNetworkTypeId() : string {
 		return EntityIds::TROPICALFISH;

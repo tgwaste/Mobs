@@ -26,11 +26,9 @@ class Main extends PluginBase implements Listener {
 	protected function onEnable() : void {
 		self::$instance = $this;
 
-		(new Registrations)->registerEntities();
-
-		$this->classes = (new Registrations)->loadClasses();
-		$this->flying = (new Registrations)->loadFlying();
-		$this->swimming = (new Registrations)->loadSwimming();
+		$this->classes = (new Registrations)->getClasses();
+		$this->flying = (new Registrations)->getFlying();
+		$this->swimming = (new Registrations)->getSwimming();
 
 		$this->saveDefaultConfig();
 		$this->getScheduler()->scheduleRepeatingTask(new Schedule(), 200);
@@ -41,6 +39,8 @@ class Main extends PluginBase implements Listener {
 		$this->regainhealth = $this->getConfig()->get("regainhealth");
 		$this->spawnmobs = $this->getConfig()->get("spawnmobs");
 		$this->spawnmsgs = $this->getConfig()->get("spawnmsgs");
+
+		(new Registrations)->registerEntities();
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
@@ -50,12 +50,12 @@ class Main extends PluginBase implements Listener {
 		}
 
 		if ($label === "listmobs") {
-			(new Funcs)->listMobs($sender);
+			(new Tools)->listMobs($sender);
 			return true;
 		}
 
 		if ($label === "killmobs") {
-			(new Funcs)->killMobs($sender);
+			(new Tools)->killMobs($sender);
 			return true;
 		}
 
@@ -69,7 +69,9 @@ class Main extends PluginBase implements Listener {
 				return false;
 			}
 
-			if (!array_key_exists($args[0], $this->classes)) {
+			$entityName = $args[0];
+
+			if (!array_key_exists($entityName, $this->classes)) {
 				$sender->sendMessage("§cInvalid Mob§r");
 				$available = "";
 				foreach ($this->classes as $mobname => $typeclass) {
@@ -79,7 +81,7 @@ class Main extends PluginBase implements Listener {
 				return true;
 			}
 
-			(new Spawn)->spawnEntity($args[0], $sender->getWorld(), $sender->getPosition());
+			(new Spawn)->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
 
 			return true;
 		}

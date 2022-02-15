@@ -106,7 +106,7 @@ class Motion {
 			return;
 		}
 
-		if ($entity->catchesFire() == true and (new Funcs)->isDayTime($entity->getWorld())) {
+		if ($entity->catchesFire() == true and (new Tools)->isDayTime($entity->getWorld())) {
 			$entity->setOnFire(120);
 			$entity->setTargetEntity($entity);
 		}
