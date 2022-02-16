@@ -2,40 +2,30 @@
 
 declare(strict_types=1);
 
-namespace tgwaste\Mobs;
+namespace tgwaste\Mobs\Entities;
 
+use pocketmine\data\bedrock\LegacyEntityIdToStringIdMap;
 use pocketmine\entity\Entity;
 use pocketmine\entity\EntitySizeInfo;
+use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
+use tgwaste\Mobs\Main;
+use tgwaste\Mobs\Motion;
+use tgwaste\Mobs\Registrations;
 
-/*
-use pocketmine\data\bedrock\LegacyEntityIdToStringIdMap;
-use pocketmine\entity\Location;
-use pocketmine\nbt\NBT;
-use pocketmine\nbt\tag\ListTag;
-use pocketmine\nbt\tag\StringTag;
-use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
-use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
-use pocketmine\network\mcpe\protocol\types\entity\MetadataProperty;
-use pocketmine\player\Player;
-use pocketmine\world\particle\FloatingTextParticle;
-*/
+class MobsEntity extends Living {
+	const TYPE_ID = 0;
+	const HEIGHT = 0.0;
 
-class MobsEntity extends Entity {
-	use Traits;
-
-public static function getNetworkTypeId(): string{
-//We are using EntityLegacyIds for BC (#blamejojoe)
-return LegacyEntityIdToStringIdMap::getInstance()->legacyToString(static::TYPE_ID) ?? throw new \LogicException(static::class . ' has invalid Entity ID');
-}
-
-/*
 	public $attackdelay;
 	public $defaultlook;
 	public $destination;
 	public $timer;
+
+	public static function getNetworkTypeId() : string {
+		return LegacyEntityIdToStringIdMap::getInstance()->legacyToString(static::TYPE_ID);
+	}
 
 	public function initEntity(CompoundTag $nbt) : void {
 		$this->setCanClimb(true);
@@ -55,6 +45,12 @@ return LegacyEntityIdToStringIdMap::getInstance()->legacyToString(static::TYPE_I
 		}
 
 		parent::initEntity($nbt);
+	}
+
+	public function getName() : string {
+		$data = explode("\\", get_class($this));
+		$name = end($data);
+		return $name;
 	}
 
 	protected function getInitialSizeInfo() : EntitySizeInfo {
@@ -132,5 +128,43 @@ return LegacyEntityIdToStringIdMap::getInstance()->legacyToString(static::TYPE_I
 		(new Motion)->tick($this);
 		return parent::entityBaseTick($diff);
 	}
-*/
+
+	public function mortalEnemy() : string {
+		return "none";
+	}
+
+	public function catchesFire() : bool {
+		return false;
+	}
+
+	public function isFlying() : bool {
+		return (array_key_exists($this->getName(), (new Registrations)->getFlying()) ? true : false);
+	}
+
+	public function isJumping() : bool {
+		return (array_key_exists($this->getName(), (new Registrations)->getJumping()) ? true : false);
+	}
+
+	public function isHostile() : bool {
+		return false;
+	}
+
+	public function isNether() : bool {
+		return false;
+	}
+
+	public function isSnow() : bool {
+		return false;
+	}
+
+	public function isSwimming() : bool {
+		$swim = (array_key_exists($this->getName(), (new Registrations)->getSwimming()) ? true : false);
+		if ($swim == true and $this->isBreathing() == false) {
+			$this->setAirSupplyTicks($this->getMaxAirSupplyTicks());
+		}
+		return $swim;
+	}
+
+	public function fall(float $fallDistance) : void {
+	}
 }

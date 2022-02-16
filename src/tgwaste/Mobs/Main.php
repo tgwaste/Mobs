@@ -81,7 +81,12 @@ class Main extends PluginBase implements Listener {
 				return true;
 			}
 
-			(new Spawn)->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
+			if (count($args) > 1) {
+				for ($x = 0; $x < (int)$args[1]; $x++)
+					(new Spawn)->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
+			} else {
+				(new Spawn)->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
+			}
 
 			return true;
 		}

@@ -132,6 +132,7 @@ class Motion {
 		$epos = $entity->getPosition();
 		$motion = $entity->getMotion();
 		$speed = $entity->getMovementSpeed();
+		$speed = 1.0;
 		$flying = $entity->isFlying();
 
 		$x = $dest->x - $epos->x;

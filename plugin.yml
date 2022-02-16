@@ -13,6 +13,6 @@ commands:
     description: "List all Mobs"
     permission: pocketmine.group.operator
   summon:
-    usage: "/summon <type>"
+    usage: "/summon <type> [quantity]"
     description: "Summon a Mob"
     permission: pocketmine.group.operator

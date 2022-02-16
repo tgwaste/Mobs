@@ -8,6 +8,7 @@ use pocketmine\data\bedrock\EntityLegacyIds;
 use pocketmine\entity\EntityFactory;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\world\World;
+
 use tgwaste\Mobs\Entities\Bat;
 use tgwaste\Mobs\Entities\Blaze;
 use tgwaste\Mobs\Entities\Cat;
@@ -21,6 +22,7 @@ use tgwaste\Mobs\Entities\Enderman;
 use tgwaste\Mobs\Entities\Horse;
 use tgwaste\Mobs\Entities\Husk;
 use tgwaste\Mobs\Entities\MagmaCube;
+use tgwaste\Mobs\Entities\MobsEntity;
 use tgwaste\Mobs\Entities\Mooshroom;
 use tgwaste\Mobs\Entities\Parrot;
 use tgwaste\Mobs\Entities\Phantom;
@@ -94,6 +96,12 @@ class Registrations {
 			"Bat" => true,
 			"Parrot" => true,
 			"Phantom" => true
+		];
+	}
+
+	public function getJumping() : array {
+		return [
+			"Rabbit" => true
 		];
 	}
 
