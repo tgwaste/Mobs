@@ -59,8 +59,7 @@ class Registrations {
 		$entityFactory = EntityFactory::getInstance();
 		foreach (Main::$instance->classes as $entityName => $typeClass) {
 			$entityFactory->register($typeClass,
-				#static function(World $world, CompoundTag $nbt) use($typeClass): MobsEntity { TODO may delete
-				static function(World $world, CompoundTag $nbt): MobsEntity {
+				static function(World $world, CompoundTag $nbt) use($entityName): MobsEntity {
 					$entityClass = new $entityName(EntityDataHelper::parseLocation($nbt, $world), $nbt);
 					return $entityClass;
 				},

@@ -156,7 +156,6 @@ class MobsEntity extends Living {
 
 	public function isSnow() : bool {
 		return (new Attributes)->isSnowMob($this->getName());
-		return false;
 	}
 
 	public function isSwimming() : bool {
