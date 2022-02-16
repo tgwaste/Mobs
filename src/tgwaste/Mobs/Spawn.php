@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace tgwaste\Mobs;
 
 use pocketmine\block\Water;
-use pocketmine\entity\Entity;
 use pocketmine\entity\Location;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 use pocketmine\world\World;
+use tgwaste\Mobs\Entities\MobsEntity;
 
 class Spawn {
 	public function spawnMobs() {
@@ -78,6 +78,10 @@ class Spawn {
 				}
 
 				if ($entity instanceof Player) {
+					continue;
+				}
+
+				if (!$entity instanceof MobsEntity) {
 					continue;
 				}
 

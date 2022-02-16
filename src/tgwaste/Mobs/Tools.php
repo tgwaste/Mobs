@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace tgwaste\Mobs;
 
 use pocketmine\command\CommandSender;
-use pocketmine\entity\Entity;
 use pocketmine\player\Player;
 use pocketmine\world\World;
+use tgwaste\Mobs\Entities\MobsEntity;
 
 class Tools {
 	public function isDayTime(World $world) : bool {
@@ -86,15 +86,17 @@ class Tools {
 					continue;
 				}
 
-				$total++;
-				$entity->kill();
+				if ($entity instanceof MobsEntity) {
+					$total++;
+					$entity->kill();
+				}
 			}
 		}
 
 		$sender->sendMessage("Killed §d$total §rMobs");
 	}
 
-	public function spawnMessage(Entity $entity, string $header) {
+	public function spawnMessage(MobsEntity $entity, string $header) {
 		if (Main::$instance->spawnmsgs == false) {
 			return;
 		}

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace tgwaste\Mobs;
 
 use pocketmine\data\bedrock\BiomeIds;
-use pocketmine\entity\Entity;
 use pocketmine\player\Player;
 
 class Biomes {
