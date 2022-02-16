@@ -8,5 +8,5 @@ use pocketmine\data\bedrock\EntityLegacyIds;
 
 class Wolf extends MobsEntity {
 	const TYPE_ID = EntityLegacyIds::WOLF;
-	const HEIGHT = 0.8;
+	const HEIGHT = 0.85;
 }

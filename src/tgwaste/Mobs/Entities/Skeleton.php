@@ -8,5 +8,5 @@ use pocketmine\data\bedrock\EntityLegacyIds;
 
 class Skeleton extends MobsEntity {
 	const TYPE_ID = EntityLegacyIds::SKELETON;
-	const HEIGHT = 2.0;
+	const HEIGHT = 1.99;
 }

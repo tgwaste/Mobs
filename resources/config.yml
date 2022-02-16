@@ -23,11 +23,18 @@ Cod: 3
 Cow: 3
 Creeper: 3
 Dolphin: 3
+Donkey: 3
+ElderGuardian: 3
 Enderman: 3
+Ghast: 3
+Guardian: 3
 Horse: 3
 Husk: 3
+IronGolem: 3
+Llama: 3
 MagmaCube: 3
 Mooshroom: 3
+Ocelot: 3
 Parrot: 3
 Phantom: 3
 Pig: 3
@@ -36,13 +43,17 @@ PufferFish: 3
 Rabbit: 3
 Salmon: 3
 Sheep: 3
+Silverfish: 3
 Skeleton: 3
+SkeletonHorse: 3
 Slime: 3
 Spider: 3
 Squid: 3
 Stray: 3
 TropicalFish: 3
 Villager: 3
+Witch: 3
 Wolf: 3
 Zombie: 3
+ZombieVillager: 3
 ...

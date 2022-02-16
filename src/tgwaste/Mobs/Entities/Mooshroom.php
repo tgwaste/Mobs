@@ -8,5 +8,5 @@ use pocketmine\data\bedrock\EntityLegacyIds;
 
 class Mooshroom extends MobsEntity {
 	const TYPE_ID = EntityLegacyIds::MOOSHROOM;
-	const HEIGHT = 1.0;
+	const HEIGHT = 1.4;
 }

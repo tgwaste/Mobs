@@ -16,19 +16,13 @@ class Main extends PluginBase implements Listener {
 
 	public $classes;
 	public $damagetags;
-	public $flying;
 	public $nospawn;
 	public $regainhealth;
 	public $spawnmobs;
 	public $spawnmsgs;
-	public $swimming;
 
 	protected function onEnable() : void {
 		self::$instance = $this;
-
-		$this->classes = (new Registrations)->getClasses();
-		$this->flying = (new Registrations)->getFlying();
-		$this->swimming = (new Registrations)->getSwimming();
 
 		$this->saveDefaultConfig();
 		$this->getScheduler()->scheduleRepeatingTask(new Schedule(), 200);

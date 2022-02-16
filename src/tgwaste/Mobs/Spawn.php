@@ -85,7 +85,7 @@ class Spawn {
 				$worldname = $world->getFolderName();
 				$mobname = $entity->getName();
 				$block = $entity->getWorld()->getBlock($entity->getPosition()->subtract(0, 1, 0));
-				$swimming = array_key_exists($mobname, Main::$instance->swimming);
+				$swimming = (new Attributes)->isSwimming($mobname);
 
 				if ($this->isNoSpawn($world) == true) {
 					# spawning is not allowed in this world
@@ -129,7 +129,7 @@ class Spawn {
 	public function spawnEntity(string $mobname, World $world, Vector3 $pos) {
 		$location = new Location($pos->x, $pos->y, $pos->z, $world, 0, 0);
 
-		if (array_key_exists($mobname, Main::$instance->flying)) {
+		if ((new Attributes)->isFlying($mobname)) {
 			$location = new Location($pos->x, $pos->y+8, $pos->z, $world, 0, 0);
 		}
 

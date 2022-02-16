@@ -8,5 +8,5 @@ use pocketmine\data\bedrock\EntityLegacyIds;
 
 class Slime extends MobsEntity {
 	const TYPE_ID = EntityLegacyIds::SLIME;
-	const HEIGHT = 0.5;
+	const HEIGHT = 0.51;
 }

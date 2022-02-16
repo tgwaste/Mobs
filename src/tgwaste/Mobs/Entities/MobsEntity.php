@@ -10,6 +10,7 @@ use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
+use tgwaste\Mobs\Attributes;
 use tgwaste\Mobs\Main;
 use tgwaste\Mobs\Motion;
 use tgwaste\Mobs\Registrations;
@@ -138,11 +139,11 @@ class MobsEntity extends Living {
 	}
 
 	public function isFlying() : bool {
-		return (array_key_exists($this->getName(), (new Registrations)->getFlying()) ? true : false);
+		return (new Attributes)->isFlying($this->getName());
 	}
 
 	public function isJumping() : bool {
-		return (array_key_exists($this->getName(), (new Registrations)->getJumping()) ? true : false);
+		return (new Attributes)->isJumping($this->getName());
 	}
 
 	public function isHostile() : bool {
@@ -158,9 +159,11 @@ class MobsEntity extends Living {
 	}
 
 	public function isSwimming() : bool {
-		$swim = (array_key_exists($this->getName(), (new Registrations)->getSwimming()) ? true : false);
-		if ($swim == true and $this->isBreathing() == false) {
-			$this->setAirSupplyTicks($this->getMaxAirSupplyTicks());
+		$swim = (new Attributes)->isSwimming($this->getName());
+		$ticks = $this->getAirSupplyTicks();
+		$maxticks = $this->getMaxAirSupplyTicks();
+		if ($swim == true and $this->isBreathing() == false and $ticks < ($maxticks/2)) {
+			$this->setAirSupplyTicks($maxticks);
 		}
 		return $swim;
 	}

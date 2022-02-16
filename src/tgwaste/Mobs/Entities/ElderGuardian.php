@@ -6,7 +6,7 @@ namespace tgwaste\Mobs\Entities;
 
 use pocketmine\data\bedrock\EntityLegacyIds;
 
-class Stray extends MobsEntity {
-	const TYPE_ID = EntityLegacyIds::STRAY;
+class ElderGuardian extends MobsEntity {
+	const TYPE_ID = EntityLegacyIds::ELDER_GUARDIAN;
 	const HEIGHT = 1.99;
 }
