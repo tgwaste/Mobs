@@ -9,6 +9,7 @@ use pocketmine\entity\Entity;
 use pocketmine\math\Vector3;
 use pocketmine\world\World;
 use pocketmine\player\Player;
+use tgwaste\Mobs\Entities\MobsEntity;
 
 class Coords {
 	public function getSaferSpawn(Vector3 $start, World $world, int $radius) : Vector3 {
@@ -35,7 +36,7 @@ class Coords {
 		return $start;
 	}
 
-	public function getRandomDestination(Entity $entity) : Vector3 {
+	public function getRandomDestination(MobsEntity $entity) : Vector3 {
 		$pos = $this->getEnemyDestination($entity);
 
 		//if ($pos->x or $pos->y or $pos->z) {
@@ -73,7 +74,7 @@ class Coords {
 		return $pos;
 	}
 
-	public function getEnemyDestination(Entity $entity) : Vector3 { 
+	public function getEnemyDestination(MobsEntity $entity) : Vector3 { 
 		if ($entity->isHostile() == false) {
 			return new Vector3(0, 0, 0);
 		}
