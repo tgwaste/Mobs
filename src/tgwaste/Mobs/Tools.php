@@ -102,8 +102,13 @@ class Tools {
 			return;
 		}
 
+		if ($entity instanceof MobsEntity) {
+			$name = $entity->getName();
+		} else {
+			$name = $entity->getNameTag();
+		}
+
 		$eid = $entity->getId();
-		$name = $entity->getName();
 		$nametag = $entity->getNameTag();
 		$position = $entity->getPosition();
 		$world = $entity->getWorld();
