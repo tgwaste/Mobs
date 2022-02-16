@@ -131,11 +131,11 @@ class MobsEntity extends Living {
 	}
 
 	public function mortalEnemy() : string {
-		return "none";
+		return (new Attributes)->getMortalEnemy($this->getName());
 	}
 
 	public function catchesFire() : bool {
-		return false;
+		return (new Attributes)->canCatchFire($this->getName());
 	}
 
 	public function isFlying() : bool {
@@ -147,14 +147,15 @@ class MobsEntity extends Living {
 	}
 
 	public function isHostile() : bool {
-		return false;
+		return (new Attributes)->isHostile($this->getName());
 	}
 
 	public function isNether() : bool {
-		return false;
+		return (new Attributes)->isNetherMob($this->getName());
 	}
 
 	public function isSnow() : bool {
+		return (new Attributes)->isSnowMob($this->getName());
 		return false;
 	}
 
