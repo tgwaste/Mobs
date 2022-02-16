@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace tgwaste\Mobs;
 
 use pocketmine\block\Water;
-use pocketmine\entity\Entity;
 use pocketmine\math\Vector3;
 use pocketmine\world\World;
 use pocketmine\player\Player;

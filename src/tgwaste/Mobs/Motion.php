@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace tgwaste\Mobs;
 
-use pocketmine\entity\Entity;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
+use tgwaste\Mobs\Entities\MobsEntity;
 
 class Motion {
-	public function tick(Entity $entity) {
+	public function tick(MobsEntity $entity) {
 		$timer = $entity->getTimer() - 1;
 		$flying = $entity->isFlying();
 
@@ -38,7 +38,7 @@ class Motion {
 		$this->move($entity);
 	}
 
-	public function move(Entity $entity) {
+	public function move(MobsEntity $entity) {
 		$motion = $entity->getMotion();
 		$location = $entity->getLocation();
 		$swimming = $entity->isSwimming();
@@ -85,7 +85,7 @@ class Motion {
 		$this->attackEntity($entity, 4);
 	}
 
-	public function wait(Entity $entity) {
+	public function wait(MobsEntity $entity) {
 		$location = $entity->getLocation();
 
 		if ($entity->lastUpdate % 100 == 0) {
@@ -127,7 +127,7 @@ class Motion {
 		}
 	}
 
-	public function calculateMotion(Entity $entity) : Vector3 {
+	public function calculateMotion(MobsEntity $entity) : Vector3 {
 		$dest = $entity->getDestination();
 		$epos = $entity->getPosition();
 		$motion = $entity->getMotion();
@@ -160,7 +160,7 @@ class Motion {
 		return new Vector3($motion->x, $motion->y, $motion->z);
 	}
 
-	public function attackEntity(Entity $entity, int $damage) {
+	public function attackEntity(MobsEntity $entity, int $damage) {
 		$target = $entity->getTargetEntity();
 
 		if ($target === null) {
