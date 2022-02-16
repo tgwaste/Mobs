@@ -116,7 +116,8 @@ class Motion {
 		}
 
 		if (mt_rand(1, 200) == 1) {
-			return $entity->lookAt($entity->getDefaultLook());
+			$entity->lookAt($entity->getDefaultLook());
+			return;
 		}
 
 		if (mt_rand(1, 200) == 1) {
@@ -171,7 +172,8 @@ class Motion {
 
 		if (!$target->isAlive() or $dist >= 200 or ($target instanceof Player and $target->isCreative() == true)) {
 			$entity->setMovementSpeed(1.00);
-			return $entity->setTargetEntity(null);
+			$entity->setTargetEntity(null);
+			return;
 		}
 
 		if ($entity->getAttackDelay() > 20 && $dist < 2) {

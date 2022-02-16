@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace tgwaste\Mobs;
 
 use pocketmine\data\bedrock\EntityLegacyIds;
+use pocketmine\entity\EntityDataHelper;
 use pocketmine\entity\EntityFactory;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\world\World;
@@ -58,8 +59,9 @@ class Registrations {
 		$entityFactory = EntityFactory::getInstance();
 		foreach (Main::$instance->classes as $entityName => $typeClass) {
 			$entityFactory->register($typeClass,
-				static function(World $world, CompoundTag $nbt) use($typeClass): MobsEntity {
-					$entityClass = new $className(EntityDataHelper::parseLocation($nbt, $world), $nbt);
+				#static function(World $world, CompoundTag $nbt) use($typeClass): MobsEntity { TODO may delete
+				static function(World $world, CompoundTag $nbt): MobsEntity {
+					$entityClass = new $entityName(EntityDataHelper::parseLocation($nbt, $world), $nbt);
 					return $entityClass;
 				},
 			[$entityName], $typeClass::TYPE_ID);
