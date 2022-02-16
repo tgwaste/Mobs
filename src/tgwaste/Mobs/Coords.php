@@ -38,7 +38,6 @@ class Coords {
 	public function getRandomDestination(MobsEntity $entity) : Vector3 {
 		$pos = $this->getEnemyDestination($entity);
 
-		//if ($pos->x or $pos->y or $pos->z) {
 		if (!$pos->equals(new Vector3(0, 0, 0))) {
 			return $pos;
 		}
@@ -83,17 +82,13 @@ class Coords {
 		}
 
 		foreach ($entity->getWorld()->getNearbyEntities($entity->getBoundingBox()->expandedCopy(15, 15, 15)) as $e) {
-			if (!method_exists($e, "getName")) {
-				continue;
-			}
-
 			if ($e instanceof Player and $e->isAlive() and $e->isCreative() == false) {
 				$entity->setTargetEntity($e);
 				$pos = $e->getPosition();
 				return new Vector3($pos->x, 0, $pos->z);
 			}
 
-			if ($e->getName() === $entity->mortalEnemy()) {
+			if (($e instanceof Player or $e instanceof MobsEntity) and $e->getName() === $entity->mortalEnemy()) {
 				$entity->setTargetEntity($e);
 				$entity->setMovementSpeed(2.00);
 				$pos = $e->getPosition();
