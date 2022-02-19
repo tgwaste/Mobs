@@ -12,7 +12,6 @@ This is a very generic plugin that will add Mobs to your PM4 servers.
 * No drops, no XP
 * Zombies and other hostile mobs will attack you depending on game mode
 * A few hostile mobs will attack each other
-* Resource usage is comparable to PureEntities and Altay
 * Not many config options yet but there are a few
 * You can do /killmobs to wipe out all mobs
 * You can do /listmobs to list all spawned mobs
