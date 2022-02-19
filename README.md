@@ -2,7 +2,7 @@
 <b>Mob Plugin For PocketMine-MP Version 4 (by tgwaste)<b>
 <br />
 <br />
-<img src="https://github.com/tgwaste/Mobs/blob/main/icon.png" height=200 width=170>
+<img src="https://github.com/tgwaste/Mobs/blob/main/icon.png" height=200 width=160>
 <br />
 ## About
 This is a very generic plugin that will add Mobs to your PM4 servers.
