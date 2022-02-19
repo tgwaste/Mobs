@@ -18,5 +18,4 @@ This is a very generic plugin that will add Mobs to your PM4 servers.
 * You can do /listmobs to list all spawned mobs
 * You can do /summon Mob [quantity] to summon mobs to your location
 <br />
-<br />
 [![](https://poggit.pmmp.io/shield.state/Mobs)](https://poggit.pmmp.io/p/Mobs)
