@@ -20,7 +20,7 @@ mobs:
   Bat:
     amount: 3 # amount of mobs to spawn of each type
     drops: [] # items that drops when they killed
-    exp: 1 # experience when they killed
+    exp: 1 # experience when they killed (array or int)
   Blaze:
     amount: 3
     drops: []
@@ -35,8 +35,10 @@ mobs:
     exp: 1
   Chicken:
     amount: 3
-    drops: []
-    exp: 1
+    drops:
+      egg: [1, 3]
+      raw_chicken: 1
+    exp: [1, 5] # set between 1 to 5 exp
   Cod:
     amount: 3
     drops: []
