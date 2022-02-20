@@ -5,6 +5,7 @@ api: 4.0.0
 author: tgwaste
 commands:
   killmobs:
+
     usage: "/killmobs"
     description: "Kill all Mobs"
     permission: pocketmine.group.operator
