@@ -177,8 +177,7 @@ class MobsEntity extends Living {
 		foreach (Main::$instance->getConfig()->getNested("mobs." . $this->getName() . ".drops") as $itemname => $count) {
 			$item = StringToItemParser::getInstance()->parse($itemname);
 			
-			if (str_contains("-", $count)) {
-				$count = explode("-", $count);
+			if (is_array($count)) {
 				$count = mt_rand($count[0], $count[1]);
 			}
 			
@@ -190,8 +189,7 @@ class MobsEntity extends Living {
 	
 	public function getXpDropAmount() : int {
 		$exps = Main::$instance->getConfig()->getNested("mobs." . $this->getName() . ".exp");
-		if (str_contains("-", $exps)) {
-			$exps = explode("-", $exps);
+		if (is_array($exps)) {
 			return mt_rand($exps[0], $exps[1]);
 		}
         	return $exps;
