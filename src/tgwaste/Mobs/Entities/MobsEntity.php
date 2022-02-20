@@ -10,6 +10,7 @@ use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\item\StringToItemParser;
 use tgwaste\Mobs\Attributes;
 use tgwaste\Mobs\Main;
 use tgwaste\Mobs\Motion;
@@ -170,4 +171,30 @@ class MobsEntity extends Living {
 
 	public function fall(float $fallDistance) : void {
 	}
+	
+	public function getDrops() : array {
+		$temp = [];
+		foreach (Main::$instance->getConfig()->getNested("mobs." . $this->getName() . ".drops") as $itemname => $count) {
+			$item = StringToItemParser::getInstance()->parse($itemname);
+			
+			if (str_contains("-", $count)) {
+				$count = explode("-", $count);
+				$count = mt_rand($count[0], $count[1]);
+			}
+			
+			$item->setCount($count);
+			$temp[] = $item;
+		}
+		return $temp; 
+	}
+	
+	public function getXpDropAmount() : int {
+		$exps = Main::$instance->getConfig()->getNested("mobs." . $this->getName() . ".exps");
+		if (str_contains("-", $exps) {
+			$exps = explode("-", $exps);
+			return mt_rand($exps[0], $exps[1]);
+		}
+        	return $exps;
+    	}
+	
 }
