@@ -50,7 +50,7 @@ class Spawn {
 						}
 					}
 
-					$allowed = Main::$instance->getConfig()->get($mobname);
+					$allowed = Main::$instance->getConfig()->getNested("mobs." . $mobname . ".amount");
 
 					$max = $allowed - $total;
 
