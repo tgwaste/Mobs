@@ -137,13 +137,13 @@ class Spawn {
 			$location = new Location($pos->x, $pos->y+8, $pos->z, $world, 0, 0);
 		}
 
-    $entity = new Main::$instance->classes[$mobname]($location);
+   	 	$entity = new Main::$instance->classes[$mobname]($location);
 
-    if ($entity == null) {
-      return Main::$instance->getServer()->getLogger()->info("§cError§f spawning mob §d$mobname §r");
-    }
+    		if ($entity == null) {
+      			return Main::$instance->getServer()->getLogger()->info("§cError§f spawning mob §d$mobname §r");
+    		}
 
-    $entity->spawnToAll();
+    		$entity->spawnToAll();
 	}
 
 	public function isNoSpawn(World $world) {
