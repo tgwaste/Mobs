@@ -14,46 +14,176 @@ nospawn:
 - arena
 - lobby
 # amount of mobs to spawn of each type (higher numbers will use a lot more system resources)
-Bat: 3
-Blaze: 3
-Cat: 3
-CaveSpider: 3
-Chicken: 3
-Cod: 3
-Cow: 3
-Creeper: 3
-Dolphin: 3
-Donkey: 3
-ElderGuardian: 3
-Enderman: 3
-Ghast: 3
-Guardian: 3
-Horse: 3
-Husk: 3
-IronGolem: 3
-Llama: 3
-MagmaCube: 3
-Mooshroom: 3
-Ocelot: 3
-Parrot: 3
-Phantom: 3
-Pig: 3
-PolarBear: 3
-PufferFish: 3
-Rabbit: 3
-Salmon: 3
-Sheep: 3
-Silverfish: 3
-Skeleton: 3
-SkeletonHorse: 3
-Slime: 3
-Spider: 3
-Squid: 3
-Stray: 3
-TropicalFish: 3
-Villager: 3
-Witch: 3
-Wolf: 3
-Zombie: 3
-ZombieVillager: 3
+
+# mobs list
+mobs:
+  Bat:
+    amount: 3 # amount of mobs to spawn of each type
+    drops: [] # items that drops when they killed
+    exp: 1 # experience when they killed
+  Blaze:
+    amount: 3
+    drops: []
+    exp: 1
+  Cat:
+    amount: 3
+    drops: []
+    exp: 1
+  CaveSpider:
+    amount: 3
+    drops: []
+    exp: 1
+  Chicken:
+    amount: 3
+    drops: []
+    exp: 1
+  Cod:
+    amount: 3
+    drops: []
+    exp: 1
+  Cow:
+    amount: 3
+    drops: []
+    exp: 1
+  Creeper:
+    amount: 3
+    drops: []
+    exp: 1
+  Dolphin:
+    amount: 3
+    drops: []
+    exp: 1
+  Donkey:
+    amount: 3
+    drops: []
+    exp: 1
+  ElderGuardian:
+    amount: 3
+    drops: []
+    exp: 1
+  Enderman:
+    amount: 3
+    drops: []
+    exp: 1
+  Ghast:
+    amount: 3
+    drops: []
+    exp: 1
+  Guardian:
+    amount: 3
+    drops: []
+    exp: 1
+  Horse:
+    amount: 3
+    drops: []
+    exp: 1
+  Husk:
+    amount: 3
+    drops: []
+    exp: 1
+  IronGolem:
+    amount: 3
+    drops: []
+    exp: 1
+  Llama:
+    amount: 3
+    drops: []
+    exp: 1
+  MagmaCube:
+    amount: 3
+    drops: []
+    exp: 1
+  Mooshroom:
+    amount: 3
+    drops: []
+    exp: 1
+  Ocelot:
+    amount: 3
+    drops: []
+    exp: 1
+  Parrot:
+    amount: 3
+    drops: []
+    exp: 1
+  Phantom:
+    amount: 3
+    drops: []
+    exp: 1
+  Pig:
+    amount: 3
+    drops: []
+    exp: 1
+  PolarBear:
+    amount: 3
+    drops: []
+    exp: 1
+  PufferFish:
+    amount: 3
+    drops: []
+    exp: 1
+  Rabbit:
+    amount: 3
+    drops: []
+    exp: 1
+  Salmon:
+    amount: 3
+    drops: []
+    exp: 1
+  Sheep:
+    amount: 3
+    drops: []
+    exp: 1
+  Silverfish:
+    amount: 3
+    drops: []
+    exp: 1
+  Skeleton:
+    amount: 3
+    drops: []
+    exp: 1
+  SkeletonHorse:
+    amount: 3
+    drops: []
+    exp: 1
+  Slime:
+    amount: 3
+    drops: []
+    exp: 1
+  Spider:
+    amount: 3
+    drops: []
+    exp: 1
+  Squid:
+    amount: 3
+    drops: []
+    exp: 1
+  Stray:
+    amount: 3
+    drops: []
+    exp: 1
+  TropicalFish:
+    amount: 3
+    drops: []
+    exp: 1
+  Villager:
+    amount: 3
+    drops: []
+    exp: 1
+  Witch:
+    amount: 3
+    drops: []
+    exp: 1
+  Wolf:
+    amount: 3
+    drops: []
+    exp: 1
+  Zombie:
+    amount: 3
+    drops: []
+    exp: 1
+  ZombieVillager:
+    amount: 3
+    drops: []
+    exp: 1
+
 ...
