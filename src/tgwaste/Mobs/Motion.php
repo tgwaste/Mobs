@@ -28,7 +28,7 @@ class Motion {
 		$pos = $entity->getDestination();
 
 		if (!$pos->x and !$pos->y and !$pos->z) {
-			$entity->setDestination((new Coords)->getRandomDestination($entity));
+			$entity->setDestination(Main::$instance->coordsobj->getRandomDestination($entity));
 		}
 
 		if ($entity->getTimer() > 0) {
@@ -51,7 +51,7 @@ class Motion {
 		else {
 			if (mt_rand(0, 500) == 1 or ($entity->isCollided == true and $swimming == true)) {
 				# random chance of getting a new destination
-				$entity->setDestination((new Coords)->getRandomDestination($entity));
+				$entity->setDestination(Main::$instance->coordsobj->getRandomDestination($entity));
 			}
 			$targetpos = $this->calculateMotion($entity);
 			$motion->x = $targetpos->x;
@@ -106,7 +106,7 @@ class Motion {
 			return;
 		}
 
-		if ($entity->catchesFire() == true and (new Tools)->isDayTime($entity->getWorld())) {
+		if ($entity->catchesFire() == true and Main::$instance->toolsobj->isDayTime($entity->getWorld())) {
 			$entity->setOnFire(120);
 			$entity->setTargetEntity($entity);
 		}

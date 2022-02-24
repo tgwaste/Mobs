@@ -8,7 +8,7 @@ use pocketmine\scheduler\Task;
 
 class Schedule extends Task {
 	public function onRun() : void {
-		(new Spawn)->deSpawnMobs();
-		(new Spawn)->spawnMobs();
+		Main::$instance->spawnobj->deSpawnMobs();
+		Main::$instance->spawnobj->spawnMobs();
 	}
 }

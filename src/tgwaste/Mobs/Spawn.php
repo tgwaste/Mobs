@@ -27,18 +27,18 @@ class Spawn {
 
 			for ($i = 0; $i < 20; $i++) {
 				foreach ($world->getPlayers() as $player) {
-					$positions[] = (new Coords)->getSaferSpawn($player->getPosition(), $world, 100);
+					$positions[] = Main::$instance->coordsobj->getSaferSpawn($player->getPosition(), $world, 100);
 				}
 			}
 
 			foreach ($positions as $pos) {
 				$biome = $world->getBiome((int)$pos->x, (int)$pos->z)->getName();
-				$daytime = (new Tools)->isDayTime($world);
+				$daytime = Main::$instance->toolsobj->isDayTime($world);
 
 				if ($daytime == false and mt_rand(1, 100) >= 20) {
-					$mobtable = (new Biomes)->getNightMobsForBiome($biome);
+					$mobtable = Main::$instance->biomesobj->getNightMobsForBiome($biome);
 				} else {
-					$mobtable = (new Biomes)->getMobsForBiome($biome);
+					$mobtable = Main::$instance->biomesobj->getMobsForBiome($biome);
 				}
 
 				foreach ($mobtable as $mobname) {
@@ -59,7 +59,7 @@ class Spawn {
 					}
 
 					while ($max > 0) {
-						$newpos = (new Coords)->getSaferSpawn($pos, $world, 8);
+						$newpos = Main::$instance->coordsobj->getSaferSpawn($pos, $world, 8);
 						$this->spawnEntity($mobname, $world, $newpos);
 						$max--;
 					}
@@ -89,7 +89,7 @@ class Spawn {
 				$worldname = $world->getFolderName();
 				$mobname = $entity->getName();
 				$block = $entity->getWorld()->getBlock($entity->getPosition()->subtract(0, 1, 0));
-				$swimming = (new Attributes)->isSwimming($mobname);
+				$swimming = Main::$instance->attrobj->isSwimming($mobname);
 
 				if ($this->isNoSpawn($world) == true) {
 					# spawning is not allowed in this world
@@ -133,7 +133,7 @@ class Spawn {
 	public function spawnEntity(string $mobname, World $world, Vector3 $pos) {
 		$location = new Location($pos->x, $pos->y, $pos->z, $world, 0, 0);
 
-		if ((new Attributes)->isFlying($mobname)) {
+		if (Main::$instance->attrobj->isFlying($mobname)) {
 			$location = new Location($pos->x, $pos->y+8, $pos->z, $world, 0, 0);
 		}
 

@@ -20,9 +20,20 @@ class Main extends PluginBase implements Listener {
 	public $regainhealth;
 	public $spawnmobs;
 	public $spawnmsgs;
+	public $attrobj;
+	public $toolsobj;
+	public $spawnobj;
+	public $biomesobj;
+	public $coordsobj;
 
 	protected function onEnable() : void {
 		self::$instance = $this;
+
+		$this->attrobj = (new Attributes);
+		$this->toolsobj = (new Tools);
+		$this->spawnobj = (new Spawn);
+		$this->biomesobj = (new Biomes);
+		$this->coordsobj = (new Coords);
 
 		$this->saveDefaultConfig();
 		$this->getScheduler()->scheduleRepeatingTask(new Schedule(), 200);
@@ -44,12 +55,12 @@ class Main extends PluginBase implements Listener {
 		}
 
 		if ($label === "listmobs") {
-			(new Tools)->listMobs($sender);
+			$this->toolsobj->listMobs($sender);
 			return true;
 		}
 
 		if ($label === "killmobs") {
-			(new Tools)->killMobs($sender);
+			$this->toolsobj->killMobs($sender);
 			return true;
 		}
 
@@ -77,9 +88,9 @@ class Main extends PluginBase implements Listener {
 
 			if (count($args) > 1) {
 				for ($x = 0; $x < (int)$args[1]; $x++)
-					(new Spawn)->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
+					$this->spawnobj->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
 			} else {
-				(new Spawn)->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
+				$this->spawnobj->spawnEntity($entityName, $sender->getWorld(), $sender->getPosition());
 			}
 
 			return true;
