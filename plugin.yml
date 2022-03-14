@@ -7,12 +7,16 @@ commands:
   killmobs:
     usage: "/killmobs"
     description: "Kill all Mobs"
-    permission: pocketmine.group.operator
+    permission: mobs.operator
   listmobs:
     usage: "/listmobs"
     description: "List all Mobs"
-    permission: pocketmine.group.operator
+    permission: mobs.operator
   summon:
     usage: "/summon <type> [quantity]"
     description: "Summon a Mob"
-    permission: pocketmine.group.operator
+    permission: mobs.operator
+permissions:
+  mobs.operator:
+    description: allow using mob commands
+    default: op

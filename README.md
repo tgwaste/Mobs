@@ -5,7 +5,7 @@
 <img src="https://github.com/tgwaste/Mobs/blob/main/icon.png" height=200 width=150>
 <br />
 ## About
-This is a very generic plugin that will add Mobs to your PM4 servers.
+This is a very generic plugin that will add Mobs to your PM4 worlds.
 <br />
 * This is really barebones right now
 * Mobs have no real behavior yet other than moving around
