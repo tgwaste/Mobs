@@ -114,7 +114,7 @@ class Tools {
 		$world = $entity->getWorld();
 
 		$worldname = $world->getFolderName();
-		$biome = $world->getBiome((int)$position->x, (int)$position->z)->getName();
+		$biome = $world->getBiome((int)$position->x, (int)$position->y, (int)$position->z)->getName();
 
 		$biometag = $this->getBiomeTag($biome);
 		$nametag = str_replace(["\n"], "", $nametag);

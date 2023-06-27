@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace tgwaste\Mobs\Entities;
 
-use pocketmine\data\bedrock\LegacyEntityIdToStringIdMap;
-
 class Villager extends MobsEntity {
-	const TYPE_ID = LegacyEntityIdToStringIdMap::VILLAGER;
-	const HEIGHT = 1.9;
+	const TYPE_ID = 15;
+	const HEIGHT = 1.95;
 }

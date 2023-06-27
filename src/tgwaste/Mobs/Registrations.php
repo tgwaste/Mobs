@@ -65,7 +65,6 @@ class Registrations {
 			[$entityName], $typeClass::TYPE_ID);
 		}
 	}
-##[Server thread/CRITICAL]: Error: "Undefined constant pocketmine\data\bedrock\LegacyEntityIdToStringIdMap::BAT" (EXCEPTION) in "plugins/Mobs.phar/src/tgwaste/Mobs/Registrations" at line 65
 
 	public function getClasses() : array {
 		return [

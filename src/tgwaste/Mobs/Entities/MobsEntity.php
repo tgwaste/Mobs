@@ -30,7 +30,8 @@ class MobsEntity extends Living {
 
 	public function initEntity(CompoundTag $nbt) : void {
 		$this->setCanClimb(true);
-		$this->setImmobile(false);
+		#$this->setImmobile(false);
+		$this->setNoClientPredictions(false);
 		$this->setHealth(20);
 		$this->setMaxHealth(20);
 		$this->setMovementSpeed(1.00);
