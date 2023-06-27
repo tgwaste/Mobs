@@ -1,11 +1,11 @@
 # Mobs
-<b>Mob Plugin For PocketMine-MP Version 4 (by tgwaste)<b>
+<b>Mob Plugin For PocketMine-MP Version 5 (by tgwaste)<b>
 <br />
 <br />
 <img src="https://github.com/tgwaste/Mobs/blob/main/icon.png" height=200 width=150>
 <br />
 ## About
-This is a very generic plugin that will add Mobs to your PM4 worlds.
+This is a very generic plugin that will add Mobs to your PM5 worlds.
 <br />
 * This is really barebones right now
 * Mobs have no real behavior yet other than moving around
