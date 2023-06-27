@@ -62,7 +62,7 @@ class Registrations {
 				static function(World $world, CompoundTag $nbt) use($typeClass): MobsEntity {
 					return new $typeClass(EntityDataHelper::parseLocation($nbt, $world), $nbt);
 				},
-			[$entityName], $typeClass::TYPE_ID);
+			[$entityName]);
 		}
 	}
 
