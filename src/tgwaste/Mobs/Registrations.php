@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace tgwaste\Mobs;
 
-use pocketmine\data\bedrock\EntityLegacyIds;
+use pocketmine\data\bedrock\LegacyEntityIdToStringIdMap;
 use pocketmine\entity\EntityDataHelper;
 use pocketmine\entity\EntityFactory;
 use pocketmine\nbt\tag\CompoundTag;
@@ -65,6 +65,7 @@ class Registrations {
 			[$entityName], $typeClass::TYPE_ID);
 		}
 	}
+##[Server thread/CRITICAL]: Error: "Undefined constant pocketmine\data\bedrock\LegacyEntityIdToStringIdMap::BAT" (EXCEPTION) in "plugins/Mobs.phar/src/tgwaste/Mobs/Registrations" at line 65
 
 	public function getClasses() : array {
 		return [
