@@ -16,7 +16,7 @@ use tgwaste\Mobs\Motion;
 use tgwaste\Mobs\Registrations;
 
 class MobsEntity extends Living {
-	const TYPE_ID = 0;
+	const TYPE_ID = "";
 	const HEIGHT = 0.0;
 
 	public $attackdelay;
@@ -25,7 +25,7 @@ class MobsEntity extends Living {
 	public $timer;
 
 	public static function getNetworkTypeId() : string {
-		return LegacyEntityIdToStringIdMap::getInstance()->legacyToString(static::TYPE_ID);
+		return static::TYPE_ID;
 	}
 
 	public function initEntity(CompoundTag $nbt) : void {
