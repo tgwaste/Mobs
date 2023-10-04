@@ -10,6 +10,10 @@ use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\player\Player;
+
 use tgwaste\Mobs\Attributes;
 use tgwaste\Mobs\Main;
 use tgwaste\Mobs\Motion;
@@ -25,6 +29,8 @@ class MobsEntity extends Living {
 
     protected float $entitySizeHeigth = 2.5;
     protected float $entitySizeWidth = 1.0;
+
+    protected $canDrop = false;
 
 	public $attackdelay;
 	public $defaultlook;
@@ -171,5 +177,21 @@ class MobsEntity extends Living {
 	}
 
 	public function fall(float $fallDistance) : void {
-	}
+	}    
+
+    // set flag: canDrop
+    public function applyDamageModifiers(EntityDamageEvent $source) : void {
+        if (!$this->canDrop) {
+            if ($source instanceof EntityDamageByEntityEvent && ($attacker = $source->getDamager()) !== null) {
+                $this->canDrop = ($attacker instanceof Player);
+            }
+        }
+        parent::applyDamageModifiers($source);
+    }
+
+    public function canDrop() : bool {
+    	return $this->canDrop;
+    }
+
+
 }
