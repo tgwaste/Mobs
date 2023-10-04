@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class SkeletonHorse extends MobsEntity {
 	const TYPE_ID = EntityIds::SKELETON_HORSE;
-	const HEIGHT = 1.6;
+	
+    protected int $health = 15;
+    protected float $speed = 0.2;
+
+    protected float $entitySizeHeigth = 1.6;
+    protected float $entitySizeWidth = 0.79;
 
 	public $isLooting = false;
 

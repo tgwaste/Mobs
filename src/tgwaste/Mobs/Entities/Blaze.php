@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Blaze extends MobsEntity {
 	const TYPE_ID = EntityIds::BLAZE;
-	const HEIGHT = 1.8;
+    
+    protected int $health = 20;
+    protected float $speed = 0.23;
+
+    protected float $entitySizeHeigth = 1.8;
+    protected float $entitySizeWidth = 0.6;
 
     public $isLooting = false;
     

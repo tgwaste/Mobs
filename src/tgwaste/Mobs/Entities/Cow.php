@@ -12,8 +12,13 @@ use pocketmine\player\Player;
 
 class Cow extends MobsEntity {
 	const TYPE_ID = EntityIds::COW;
-	const HEIGHT = 1.4;
 
+    protected int $health = 10;
+    protected float $speed = 0.45;
+
+    protected float $entitySizeHeigth = 1.4;
+    protected float $entitySizeWidth = 0.9;
+    
     public $isLooting = false;
 
     protected function applyPostDamageEffects(EntityDamageEvent $source) : void {

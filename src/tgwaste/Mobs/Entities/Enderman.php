@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Enderman extends MobsEntity {
 	const TYPE_ID = EntityIds::ENDERMAN;
-	const HEIGHT = 2.9;
+    
+    protected int $health = 8;
+    protected float $speed = 0.25;
+
+    protected float $entitySizeHeigth = 0.3;
+    protected float $entitySizeWidth = 0.4;
 
     public $isLooting = false;
     

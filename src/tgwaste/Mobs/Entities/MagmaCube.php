@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class MagmaCube extends MobsEntity {
 	const TYPE_ID = EntityIds::MAGMA_CUBE;
-	const HEIGHT = 1.0;
+
+    protected int $health = 8;
+    protected float $speed = 0.4;
+
+    protected float $entitySizeHeigth = 0.8;
+    protected float $entitySizeWidth = 0.8;
 
     public $isLooting = false;
 

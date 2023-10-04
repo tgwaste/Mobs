@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Mooshroom extends MobsEntity {
 	const TYPE_ID = EntityIds::MOOSHROOM;
-	const HEIGHT = 1.4;
+	
+    protected int $health = 10;
+    protected float $speed = 0.45;
+
+    protected float $entitySizeHeigth = 1.4;
+    protected float $entitySizeWidth = 0.9;
 
     public $isLooting = false;
 
@@ -27,7 +32,7 @@ class Mooshroom extends MobsEntity {
 
     public function getDrops(): array {
         if (!$this->isLooting) return [];
-
+        $drops[] = VanillaItems::MUSHROOM_STEW();
         $drops[] = VanillaItems::LEATHER()->setCount(mt_rand(0, 2));
         $drops[] = VanillaItems::RAW_BEEF()->setCount(mt_rand(1, 3));
 

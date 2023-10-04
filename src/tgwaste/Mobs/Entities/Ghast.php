@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Ghast extends MobsEntity {
 	const TYPE_ID = EntityIds::GHAST;
-	const HEIGHT = 4.0;
+    
+    protected int $health = 10;
+    protected float $speed = 0.001;
+
+    protected float $entitySizeHeigth = 4.0;
+    protected float $entitySizeWidth = 4.0;
 
     public $isLooting = false;
 

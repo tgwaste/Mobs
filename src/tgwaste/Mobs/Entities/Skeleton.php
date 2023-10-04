@@ -12,9 +12,15 @@ use pocketmine\player\Player;
 
 class Skeleton extends MobsEntity {
 	const TYPE_ID = EntityIds::SKELETON;
-	const HEIGHT = 1.99;
+	
+    protected int $health = 20;
+    protected float $speed = 0.25;
+
+    protected float $entitySizeHeigth = 1.99;
+    protected float $entitySizeWidth = 0.6;
 
 	public $isLooting = false;
+    
     protected function applyPostDamageEffects(EntityDamageEvent $source) : void {
         if (!$this->isLooting) {
             if ($source instanceof EntityDamageByEntityEvent && ($attacker = $source->getDamager()) !== null) {

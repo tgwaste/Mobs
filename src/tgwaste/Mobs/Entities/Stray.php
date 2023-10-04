@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Stray extends MobsEntity {
 	const TYPE_ID = EntityIds::STRAY;
-	const HEIGHT = 1.99;
+	
+    protected int $health = 20;
+    protected float $speed = 0.25;
+
+    protected float $entitySizeHeigth = 1.99;
+    protected float $entitySizeWidth = 0.6;
 
     public $isLooting = false;
 

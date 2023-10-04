@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class PufferFish extends MobsEntity {
 	const TYPE_ID = EntityIds::PUFFERFISH;
-	const HEIGHT = 1.0;
+	
+    protected int $health = 3;
+    protected float $speed = 1.0;
+
+    protected float $entitySizeHeigth = 0.7;
+    protected float $entitySizeWidth = 0.7;
 
     public $isLooting = false;
 

@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class IronGolem extends MobsEntity {
 	const TYPE_ID = EntityIds::IRON_GOLEM;
-	const HEIGHT = 2.7;
+	
+    protected int $health = 100;
+    protected float $speed = 0.25;
+
+    protected float $entitySizeHeigth = 2.7;
+    protected float $entitySizeWidth = 1.4;
 
     public $isLooting = false;
 

@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Guardian extends MobsEntity {
 	const TYPE_ID = EntityIds::GUARDIAN;
-	const HEIGHT = 0.85;
+
+    protected int $health = 30;
+    protected float $speed = 0.5;
+
+    protected float $entitySizeHeigth = 0.85;
+    protected float $entitySizeWidth = 0.85;
 
     public $isLooting = false;
 

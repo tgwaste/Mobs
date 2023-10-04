@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Phantom extends MobsEntity {
 	const TYPE_ID = EntityIds::PHANTOM;
-	const HEIGHT = 1.0;
+	
+    protected int $health = 20;
+    protected float $speed = 0.6;
+
+    protected float $entitySizeHeigth = 0.5;
+    protected float $entitySizeWidth = 0.9;
 
     public $isLooting = false;
 

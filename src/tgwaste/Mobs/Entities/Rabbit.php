@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Rabbit extends MobsEntity {
 	const TYPE_ID = EntityIds::RABBIT;
-	const HEIGHT = 0.5;
+	
+    protected int $health = 3;
+    protected float $speed = 0.5;
+
+    protected float $entitySizeHeigth = 0.4;
+    protected float $entitySizeWidth = 0.2;
 
     public $isLooting = false;
 

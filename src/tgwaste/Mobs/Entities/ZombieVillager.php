@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class ZombieVillager extends MobsEntity {
 	const TYPE_ID = EntityIds::ZOMBIE_VILLAGER;
-	const HEIGHT = 1.95;
+	
+    protected int $health = 20;
+    protected float $speed = 0.23;
+
+    protected float $entitySizeHeigth = 1.95;
+    protected float $entitySizeWidth = 0.6;
 
     public $isLooting = false;
 

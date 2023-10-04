@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Silverfish extends MobsEntity {
 	const TYPE_ID = EntityIds::SILVERFISH;
-	const HEIGHT = 0.3;
+	
+    protected int $health = 8;
+    protected float $speed = 0.4;
+
+    protected float $entitySizeHeigth = 0.3;
+    protected float $entitySizeWidth = 0.4;
 
     public $isLooting = false;
 

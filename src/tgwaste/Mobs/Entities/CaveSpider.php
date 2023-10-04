@@ -12,7 +12,13 @@ use pocketmine\player\Player;
 
 class CaveSpider extends MobsEntity {
 	const TYPE_ID = EntityIds::CAVE_SPIDER;
-	const HEIGHT = 0.5;
+    
+    protected int $health = 12;
+    protected float $speed = 0.5;
+    protected bool $canClimb = true;
+
+    protected float $entitySizeHeigth = 0.5;
+    protected float $entitySizeWidth = 0.7;
 
     public $isLooting = false;
 

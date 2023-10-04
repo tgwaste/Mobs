@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Dolphin extends MobsEntity {
 	const TYPE_ID = EntityIds::DOLPHIN;
-	const HEIGHT = 1.0;
+    
+    protected int $health = 10;
+    protected float $speed = 1.2;
+
+    protected float $entitySizeHeigth = 0.9;
+    protected float $entitySizeWidth = 0.6;
 
     public $isLooting = false;
 

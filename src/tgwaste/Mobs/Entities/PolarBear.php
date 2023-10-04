@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class PolarBear extends MobsEntity {
 	const TYPE_ID = EntityIds::POLAR_BEAR;
-	const HEIGHT = 1.4;
+	
+    protected int $health = 30;
+    protected float $speed = 0.25;
+
+    protected float $entitySizeHeigth = 1.4;
+    protected float $entitySizeWidth = 1.3;
 
     public $isLooting = false;
 

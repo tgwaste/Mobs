@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Squid extends MobsEntity {
 	const TYPE_ID = EntityIds::SQUID;
-	const HEIGHT = 0.8;
+	
+    protected int $health = 10;
+    protected float $speed = 0.1;
+
+    protected float $entitySizeHeigth = 0.8;
+    protected float $entitySizeWidth = 0.8;
 
     public $isLooting = false;
 

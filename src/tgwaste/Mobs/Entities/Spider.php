@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Spider extends MobsEntity {
 	const TYPE_ID = EntityIds::SPIDER;
-	const HEIGHT = 0.9;
+    
+    protected int $health = 16;
+    protected float $speed = 0.3;
+
+    protected float $entitySizeHeigth = 0.9;
+    protected float $entitySizeWidth = 1.4;
 
     public $isLooting = false;
 

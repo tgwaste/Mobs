@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Donkey extends MobsEntity {
 	const TYPE_ID = EntityIds::DONKEY;
-	const HEIGHT = 1.6;
+
+    protected int $health = 15;
+    protected float $speed = 1.1;
+
+    protected float $entitySizeHeigth = 1.6;
+    protected float $entitySizeWidth = 0.9;
 
     public $isLooting = false;
 

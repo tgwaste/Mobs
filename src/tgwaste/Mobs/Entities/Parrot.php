@@ -12,7 +12,13 @@ use pocketmine\player\Player;
 
 class Parrot extends MobsEntity {
 	const TYPE_ID = EntityIds::PARROT;
-	const HEIGHT = 1.0;
+    
+    protected int $health = 6;
+    protected float $speed = 1.2;
+    protected bool $gravityMob = false;
+
+    protected float $entitySizeHeigth = 0.9;
+    protected float $entitySizeWidth = 0.5;
 
     public $isLooting = false;
 

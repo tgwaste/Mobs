@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Slime extends MobsEntity {
 	const TYPE_ID = EntityIds::SLIME;
-	const HEIGHT = 0.51;
+	
+    protected int $health = 4;
+    protected float $speed = 0.45;
+
+    protected float $entitySizeHeigth = 0.7;
+    protected float $entitySizeWidth = 0.6;
 
     public $isLooting = false;
 

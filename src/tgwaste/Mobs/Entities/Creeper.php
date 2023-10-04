@@ -12,7 +12,12 @@ use pocketmine\player\Player;
 
 class Creeper extends MobsEntity {
 	const TYPE_ID = EntityIds::CREEPER;
-	const HEIGHT = 1.7;
+    
+    protected int $health = 20;
+    protected float $speed = 0.25;
+
+    protected float $entitySizeHeigth = 1.7;
+    protected float $entitySizeWidth = 0.6;
 
     public $isLooting = false;
 
