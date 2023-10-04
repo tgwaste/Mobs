@@ -10,6 +10,10 @@ use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\player\Player;
+
 use tgwaste\Mobs\Attributes;
 use tgwaste\Mobs\Main;
 use tgwaste\Mobs\Motion;
@@ -17,7 +21,16 @@ use tgwaste\Mobs\Registrations;
 
 class MobsEntity extends Living {
 	const TYPE_ID = "";
-	const HEIGHT = 0.0;
+
+    protected int $health = 10;
+    protected float $speed = 1.00;
+    protected bool $canClimb = false;
+    protected bool $gravityMob = true;
+
+    protected float $entitySizeHeigth = 2.5;
+    protected float $entitySizeWidth = 1.0;
+
+    protected $canDrop = false;
 
 	public $attackdelay;
 	public $defaultlook;
@@ -29,21 +42,16 @@ class MobsEntity extends Living {
 	}
 
 	public function initEntity(CompoundTag $nbt) : void {
-		$this->setCanClimb(true);
-		$this->setNoClientPredictions(false);
-		$this->setHealth(20);
-		$this->setMaxHealth(20);
-		$this->setMovementSpeed(1.00);
-		$this->setHasGravity(true);
+		$this->setHealth($this->health);
+        $this->setMaxHealth($this->health);
+        $this->setMovementSpeed($this->speed);
+        $this->setCanClimb($this->canClimb);
+        $this->setHasGravity($this->gravityMob);
 
 		$this->attackdelay = 0;
 		$this->defaultlook = new Vector3(0, 0, 0);
 		$this->destination = new Vector3(0, 0, 0);
 		$this->timer = -1;
-
-		if ($this->isFlying() == true or $this->isSwimming() == true) {
-			$this->setHasGravity(false);
-		}
 
 		parent::initEntity($nbt);
 	}
@@ -55,7 +63,7 @@ class MobsEntity extends Living {
 	}
 
 	protected function getInitialSizeInfo() : EntitySizeInfo {
-		return new EntitySizeInfo(1.8, 0.6);
+		return new EntitySizeInfo($this->entitySizeHeigth, $this->entitySizeWidth);
 	}
 
 	public function canSaveWithChunk() : bool {
@@ -103,7 +111,7 @@ class MobsEntity extends Living {
 		$percent = (int)(($health * 100.0) / $maxhealth);
 
 		if ($damagetags == true and $percent < 100) {
-			$this->setNameTag("$name §c♥§a $percent §r");
+			$this->setNameTag("$name §c♥§a {$percent}§f% §r");
 		} else {
 			$damagetags = false;
 			$this->setNameTag($this->getName());
@@ -169,5 +177,21 @@ class MobsEntity extends Living {
 	}
 
 	public function fall(float $fallDistance) : void {
-	}
+	}    
+
+    // set flag: canDrop
+    public function applyDamageModifiers(EntityDamageEvent $source) : void {
+        if (!$this->canDrop) {
+            if ($source instanceof EntityDamageByEntityEvent && ($attacker = $source->getDamager()) !== null) {
+                $this->canDrop = ($attacker instanceof Player);
+            }
+        }
+        parent::applyDamageModifiers($source);
+    }
+
+    public function canDrop() : bool {
+    	return $this->canDrop;
+    }
+
+
 }
