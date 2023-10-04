@@ -35,7 +35,8 @@ class Chicken extends MobsEntity {
 
         $drops = [
 			VanillaItems::FEATHER()->setCount(mt_rand(0, 2)),
-            VanillaItems::RAW_CHICKEN()->setCount(mt_rand(0, 1))
+            VanillaItems::RAW_CHICKEN()->setCount(mt_rand(0, 1)),
+            VanillaItems::EGG()->setCount(mt_rand(0, 1))
         ];
 
         return $drops;

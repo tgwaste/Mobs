@@ -33,7 +33,7 @@ class PufferFish extends MobsEntity {
     public function getDrops(): array {
         if (!$this->isLooting) return [];
 
-        $drops[] = VanillaItems::RAW_FISH()->setCount(1);
+        $drops[] = VanillaItems::PUFFERFISH();
 
         return $drops;
     }

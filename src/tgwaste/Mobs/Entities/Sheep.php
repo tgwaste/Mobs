@@ -9,6 +9,8 @@ use pocketmine\item\VanillaItems;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\player\Player;
+use pocketmine\block\utils\DyeColor;
+use pocketmine\block\VanillaBlocks;
 
 class Sheep extends MobsEntity {
 	const TYPE_ID = EntityIds::SHEEP;
@@ -32,8 +34,12 @@ class Sheep extends MobsEntity {
 
     public function getDrops(): array {
         if (!$this->isLooting) return [];
-
-        $drops[] = VanillaItems::RAW_MUTTON()->setCount(mt_rand(1, 2));
+        $colors = DyeColor::getAll();
+        $randomColor = $colors[array_rand($colors)];
+        $drops = [
+            VanillaBlocks::WOOL()->setColor($randomColor)->asItem(), 
+            VanillaItems::RAW_MUTTON()->setCount(mt_rand(1, 2))
+        ];
 
         return $drops;
     }

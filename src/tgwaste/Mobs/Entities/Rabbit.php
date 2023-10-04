@@ -33,7 +33,7 @@ class Rabbit extends MobsEntity {
     public function getDrops(): array {
         if (!$this->isLooting) return [];
 
-        $drops[] = VanillaItems::RAW_RABBIT()->setCount(1);
+        $drops[] = VanillaItems::RAW_RABBIT();
         $drops[] = VanillaItems::RABBIT_HIDE()->setCount(mt_rand(0, 1));
 
         // rare drops
